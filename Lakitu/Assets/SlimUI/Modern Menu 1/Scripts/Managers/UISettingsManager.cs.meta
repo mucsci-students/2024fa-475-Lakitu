@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: d8f6aa6586f77764fab668a0a62d8f7a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pauseMenu: {fileID: 5429341922959870843, guid: 817319833dd713d45af5c2121e9649c7, type: 3}
+  - mobileSFXtext: {instanceID: 0}
+  - mobileMusictext: {instanceID: 0}
+  - mobileShadowofftextLINE: {instanceID: 0}
+  - mobileShadowlowtextLINE: {instanceID: 0}
+  - mobileShadowhightextLINE: {instanceID: 0}
+  - fullscreentext: {instanceID: 0}
+  - ambientocclusiontext: {instanceID: 0}
+  - shadowofftextLINE: {instanceID: 0}
+  - shadowlowtextLINE: {instanceID: 0}
+  - shadowhightextLINE: {instanceID: 0}
+  - aaofftextLINE: {instanceID: 0}
+  - aa2xtextLINE: {instanceID: 0}
+  - aa4xtextLINE: {instanceID: 0}
+  - aa8xtextLINE: {instanceID: 0}
+  - vsynctext: {instanceID: 0}
+  - motionblurtext: {instanceID: 0}
+  - texturelowtextLINE: {instanceID: 0}
+  - texturemedtextLINE: {instanceID: 0}
+  - texturehightextLINE: {instanceID: 0}
+  - cameraeffectstext: {instanceID: 0}
+  - showhudtext: {instanceID: 0}
+  - tooltipstext: {instanceID: 0}
+  - difficultynormaltext: {instanceID: 0}
+  - difficultynormaltextLINE: {instanceID: 0}
+  - difficultyhardcoretext: {instanceID: 0}
+  - difficultyhardcoretextLINE: {instanceID: 0}
+  - invertmousetext: {instanceID: 0}
+  - musicSlider: {instanceID: 0}
+  - sensitivityXSlider: {instanceID: 0}
+  - sensitivityYSlider: {instanceID: 0}
+  - mouseSmoothSlider: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
