@@ -51,7 +51,7 @@ public class Portal : MonoBehaviour
         }
 
         // Small delay to prevent teleport loops and ensure teleportation completes
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1.0f);
 
         isTeleporting = false;
         linkedPortal.isTeleporting = false;
