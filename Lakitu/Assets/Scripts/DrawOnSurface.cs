@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawOnSurface : MonoBehaviour
+public class DrawOnSurfaceWithRange : MonoBehaviour
 {
-    public Material lineMaterial;  // Material for the line
-    public float lineWidth = 0.1f; // Width of the drawn line
+    public Material lineMaterial;        // Material for the line
+    public float lineWidth = 0.1f;       // Width of the drawn line
+    public LayerMask drawingSurface;     // Layer to restrict drawing to a specific surface
+    public Transform player;             // Reference point for range (e.g., player)
+    public float drawingRange = 5f;      // Maximum drawing range from the player
 
     private List<Vector3> points = new List<Vector3>();
     private LineRenderer currentLine;
@@ -18,11 +21,11 @@ public class DrawOnSurface : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button pressed
+        if (Input.GetMouseButtonDown(0)) // Start drawing
         {
             CreateNewLine();
         }
-        else if (Input.GetMouseButton(0)) // Holding the left mouse button
+        else if (Input.GetMouseButton(0)) // Continue drawing
         {
             AddPointToLine();
         }
@@ -41,16 +44,22 @@ public class DrawOnSurface : MonoBehaviour
 
     void AddPointToLine()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 10f; // Adjust depth if necessary
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-
-        // Add only if the point is new enough to avoid redundancy
-        if (points.Count == 0 || Vector3.Distance(points[points.Count - 1], worldPosition) > 0.1f)
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, drawingSurface))
         {
-            points.Add(worldPosition);
-            currentLine.positionCount = points.Count;
-            currentLine.SetPosition(points.Count - 1, worldPosition);
+            Vector3 hitPoint = hitInfo.point;
+
+            // Check if the hit point is within the drawing range
+            if (Vector3.Distance(player.position, hitPoint) <= drawingRange)
+            {
+                // Only add point if it is sufficiently far from the last point
+                if (points.Count == 0 || Vector3.Distance(points[points.Count - 1], hitPoint) > 0.1f)
+                {
+                    points.Add(hitPoint);
+                    currentLine.positionCount = points.Count;
+                    currentLine.SetPosition(points.Count - 1, hitPoint);
+                }
+            }
         }
     }
 }
