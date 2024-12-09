@@ -27,8 +27,8 @@ public class NumberManager : MonoBehaviour
     void Start()
     {
         isOpen = false;
-        opened = new Vector3(-62f, 10f, 26f);
-        closed = new Vector3(-62f, 4f, 26f);
+        opened = new Vector3(111.5f, 10f, 43.6f);
+        closed = new Vector3(111.5f, 4f, 43.6f);
 
         redValue = Random.Range(0, 10);
         blueValue = Random.Range(0, 10);
