@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DrawOnSurfaceWithRange : MonoBehaviour
 {
@@ -21,6 +21,12 @@ public class DrawOnSurfaceWithRange : MonoBehaviour
 
     void Update()
     {
+        // Ignore drawing if the mouse is over a UI element
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         if (Input.GetMouseButtonDown(0)) // Start drawing
         {
             CreateNewLine();
@@ -45,14 +51,18 @@ public class DrawOnSurfaceWithRange : MonoBehaviour
     void AddPointToLine()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, drawingSurface))
+
+        // Ignore the UI layer if set on LayerMask
+        int layerMask = ~LayerMask.GetMask("UI");
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, drawingSurface & layerMask))
         {
             Vector3 hitPoint = hitInfo.point;
 
             // Check if the hit point is within the drawing range
             if (Vector3.Distance(player.position, hitPoint) <= drawingRange)
             {
-                // Only add point if it is sufficiently far from the last point
+                // Only add point if it's sufficiently far from the last point
                 if (points.Count == 0 || Vector3.Distance(points[points.Count - 1], hitPoint) > 0.1f)
                 {
                     points.Add(hitPoint);

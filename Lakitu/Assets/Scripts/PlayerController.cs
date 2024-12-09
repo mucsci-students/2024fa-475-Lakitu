@@ -79,5 +79,17 @@ public class PlayerController : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
-}
 
+    // Method to teleport player, used by the portal
+    public void Teleport(Vector3 targetPosition, Quaternion targetRotation)
+    {
+        // Set the player's position directly
+        characterController.enabled = false; // Disable CharacterController temporarily
+        transform.position = targetPosition; // Set the new position
+
+        // Rotate the player 180 degrees
+        transform.Rotate(0f, 180f, 0f); // Rotate 180 degrees on the Y-axis
+
+        characterController.enabled = true; // Re-enable CharacterController
+    }
+}
