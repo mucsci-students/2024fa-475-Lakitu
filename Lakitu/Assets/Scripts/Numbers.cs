@@ -20,7 +20,6 @@ public class Numbers : MonoBehaviour
     public GameObject Bot;
     void Start()
     {
-        num = 0;
         nonactive = new Vector3(0f, 0f, 0f);
         active = new Vector3(.25f, .5f, .05f);
 

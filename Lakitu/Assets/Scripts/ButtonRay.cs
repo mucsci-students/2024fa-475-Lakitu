@@ -8,6 +8,7 @@ public class ButtonRay : MonoBehaviour
 
     public GameObject empty;
     public GameObject button;
+    public GameObject buttonManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,9 @@ public class ButtonRay : MonoBehaviour
             if (button.layer == 7){
                     button.transform.parent.gameObject.GetComponent<Numbers>().num =
                         (button.transform.parent.gameObject.GetComponent<Numbers>().num + 1) % 10;
+            }
+            else if(button.layer == 8){
+                buttonManager.GetComponent<NumberManager>().submit();
             }
         }
     }
