@@ -10,6 +10,8 @@ public class ButtonRay : MonoBehaviour
     public GameObject button;
     public GameObject buttonManager;
 
+    public GameObject runManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,9 @@ public class ButtonRay : MonoBehaviour
             }
             else if(button.layer == 8){
                 buttonManager.GetComponent<NumberManager>().submit();
+            }
+            else if(button.layer == 9){
+                runManager.GetComponent<RunWall>().isOpen = true;
             }
         }
     }
