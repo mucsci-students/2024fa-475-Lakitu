@@ -12,6 +12,11 @@ public class ButtonRay : MonoBehaviour
 
     public GameObject runManager;
 
+    [SerializeField] private AudioClip failedButtonSound;
+    [SerializeField] private AudioClip goodButtonSound;
+    [SerializeField] private AudioClip openSound;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,7 @@ public class ButtonRay : MonoBehaviour
             ray = new Ray(transform.position, transform.forward);   
             button = CheckForColliders();
             if (button.layer == 7){
+                sfxManager.instance.playSound(goodButtonSound, transform, 1f);
                     button.transform.parent.gameObject.GetComponent<Numbers>().num =
                         (button.transform.parent.gameObject.GetComponent<Numbers>().num + 1) % 10;
             }
@@ -32,7 +38,11 @@ public class ButtonRay : MonoBehaviour
                 buttonManager.GetComponent<NumberManager>().submit();
             }
             else if(button.layer == 9){
+                sfxManager.instance.playSound(openSound, transform, 1f);
                 runManager.GetComponent<RunWall>().isOpen = true;
+            }
+            else{
+                sfxManager.instance.playSound(failedButtonSound, transform, 1f);
             }
         }
     }

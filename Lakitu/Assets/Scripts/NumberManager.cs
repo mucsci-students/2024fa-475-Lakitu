@@ -23,6 +23,9 @@ public class NumberManager : MonoBehaviour
     public Vector3 opened;
     public Vector3 closed;
 
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip failedSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +48,11 @@ public class NumberManager : MonoBehaviour
     public void submit(){
         isOpen = blueButton.GetComponent<Numbers>().num == blueValue && redButton.GetComponent<Numbers>().num == redValue && yellowButton.GetComponent<Numbers>().num == yellowValue && greenButton.GetComponent<Numbers>().num == greenValue;
         if(isOpen){
+            sfxManager.instance.playSound(openSound, transform, 1f);
             door.transform.position = opened;
         }
         else{
+            sfxManager.instance.playSound(failedSound, transform, 1f);
             door.transform.position = closed;
         }
     }

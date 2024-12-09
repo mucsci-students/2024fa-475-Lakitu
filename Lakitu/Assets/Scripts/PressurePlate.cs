@@ -10,6 +10,9 @@ public class PressurePlate : MonoBehaviour
     public Vector3 opened;
     public Vector3 closed;
 
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private AudioClip closeSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 6){
+            sfxManager.instance.playSound(openSound, transform, 1f);
             isOn = true;
         }
     }
@@ -41,6 +45,7 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if(other.gameObject.layer == 6){
+            sfxManager.instance.playSound(closeSound, transform, 1f);
             isOn = false;
         }
     }

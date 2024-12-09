@@ -13,6 +13,8 @@ public class RunWall : MonoBehaviour
     public Vector3 closed;
 
     public float timePassed;
+
+    [SerializeField] private AudioClip failedSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class RunWall : MonoBehaviour
                 isOpen = false;
                 wall.transform.position = closed;
                 timePassed = 0f;
+                sfxManager.instance.playSound(failedSound, transform, 1f);
             }
         }
     }
