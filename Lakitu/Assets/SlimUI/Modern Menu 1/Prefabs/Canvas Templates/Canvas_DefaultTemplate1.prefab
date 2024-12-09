@@ -26726,7 +26726,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &394386096590644246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26756,38 +26756,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f6aa6586f77764fab668a0a62d8f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platform: 0
-  mobileSFXtext: {fileID: 0}
-  mobileMusictext: {fileID: 0}
-  mobileShadowofftextLINE: {fileID: 0}
-  mobileShadowlowtextLINE: {fileID: 0}
-  mobileShadowhightextLINE: {fileID: 0}
+  pauseMenu: {fileID: 0}
   fullscreentext: {fileID: 352552582775571822}
-  ambientocclusiontext: {fileID: 353516329596120864}
-  shadowofftextLINE: {fileID: 352451397745888876}
-  shadowlowtextLINE: {fileID: 352790099754507264}
-  shadowhightextLINE: {fileID: 352013461994360542}
-  aaofftextLINE: {fileID: 352054281865923140}
-  aa2xtextLINE: {fileID: 351998344952863650}
-  aa4xtextLINE: {fileID: 352646342193535466}
-  aa8xtextLINE: {fileID: 352752776619373230}
-  vsynctext: {fileID: 352082226509476046}
-  motionblurtext: {fileID: 352080121661281922}
-  texturelowtextLINE: {fileID: 351989845982141868}
-  texturemedtextLINE: {fileID: 352740496439555134}
-  texturehightextLINE: {fileID: 352948098877258942}
-  cameraeffectstext: {fileID: 352425326799509778}
-  showhudtext: {fileID: 352877195505397736}
-  tooltipstext: {fileID: 352454017363609638}
-  difficultynormaltext: {fileID: 353392370923149140}
-  difficultynormaltextLINE: {fileID: 353259667042245662}
-  difficultyhardcoretext: {fileID: 352565565915146430}
-  difficultyhardcoretextLINE: {fileID: 353520914805283200}
-  invertmousetext: {fileID: 352737170872467444}
   musicSlider: {fileID: 352423760116714556}
-  sensitivityXSlider: {fileID: 352538889094378674}
-  sensitivityYSlider: {fileID: 352612652528557086}
-  mouseSmoothSlider: {fileID: 353510286597134520}
 --- !u!1 &353327324914912596
 GameObject:
   m_ObjectHideFlags: 0
