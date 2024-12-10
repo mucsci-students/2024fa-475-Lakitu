@@ -54,6 +54,8 @@ namespace SlimUI.ModernMenu{
             }
             Time.timeScale = 0f; // Freeze the game
             isPaused = true;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
         }
 
         public void ResumeGame() {
