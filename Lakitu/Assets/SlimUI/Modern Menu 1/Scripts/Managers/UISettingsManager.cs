@@ -18,7 +18,6 @@ namespace SlimUI.ModernMenu{
 		
 
 		public void  Start (){
-			pauseMenu = pauseMenu.transform.Find("Canv_Options").gameObject;
 
 			if (pauseMenu != null) {
 				pauseMenu.SetActive(false);
