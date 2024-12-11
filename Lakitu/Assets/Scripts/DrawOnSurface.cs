@@ -14,6 +14,8 @@ public class DrawOnSurfaceWithRange : MonoBehaviour
     private LineRenderer currentLine;
     private Camera mainCamera;
 
+    public bool CanDraw { get; set; } = true;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -21,6 +23,11 @@ public class DrawOnSurfaceWithRange : MonoBehaviour
 
     void Update()
     {
+        if (!CanDraw)
+        {
+            return;
+        }
+
         // Ignore drawing if the mouse is over a UI element
         if (EventSystem.current.IsPointerOverGameObject())
         {
