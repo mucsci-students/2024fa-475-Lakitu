@@ -83,6 +83,9 @@ namespace SlimUI.ModernMenu{
 			firstMenu.SetActive(true);
 			mainMenu.SetActive(true);
 
+			 GameObject pause = GameObject.Find("Canv_Options");
+			 pause.SetActive(false);
+
 			SetThemeColors();
 		}
 
@@ -112,7 +115,6 @@ namespace SlimUI.ModernMenu{
 		}
 
 		public void PlayCampaign(){
-			exitMenu.SetActive(false);
 			SceneManager.LoadScene("Main");
 		}
 		
