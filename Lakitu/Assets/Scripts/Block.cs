@@ -6,11 +6,9 @@ public class Block : MonoBehaviour
 {
     public GameObject player;
     public PlayerController ps;
-
-    public Ray ray;
-
+    public GameObject invisibleObject;  // Reference to the invisible game object
     public bool isGrab;
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -18,16 +16,32 @@ public class Block : MonoBehaviour
         isGrab = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(isGrab){
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TeleportToInvisibleObject();
+        }
+
+        // If the block is grabbed, it follows the player
+        if (isGrab)
+        {
             GetComponent<Rigidbody>().useGravity = false;
-            
             transform.position = Vector3.Normalize(player.transform.forward) * 2 + player.transform.position;
         }
-        else{
+        else
+        {
             GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+
+    // Function to teleport the block to the invisible object's position
+    void TeleportToInvisibleObject()
+    {
+        if (invisibleObject != null)
+        {
+            transform.position = invisibleObject.transform.position;
         }
     }
 }

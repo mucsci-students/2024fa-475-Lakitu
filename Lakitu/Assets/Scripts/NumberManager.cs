@@ -33,25 +33,53 @@ public class NumberManager : MonoBehaviour
         opened = new Vector3(111.5f, 10f, 43.6f);
         closed = new Vector3(111.5f, 4f, 43.6f);
 
-        redValue = Random.Range(0, 10);
-        blueValue = Random.Range(0, 10);
-        yellowValue = Random.Range(0, 10);
-        greenValue = Random.Range(0, 10);
+        // Set initial random values for the numbers
+        ResetNumbers();
 
+        // Assign values to the number display objects
         blueNumber.GetComponent<Numbers>().num = blueValue;
         redNumber.GetComponent<Numbers>().num = redValue;
         yellowNumber.GetComponent<Numbers>().num = yellowValue;
         greenNumber.GetComponent<Numbers>().num = greenValue;
-
     }
 
-    public void submit(){
+    // Update is called once per frame
+    void Update()
+    {
+        // Check if the "T" key is pressed to reset the numbers
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            ResetNumbers();
+        }
+    }
+
+    // Function to reset the number values
+    void ResetNumbers()
+    {
+        blueValue = Random.Range(0, 10);
+        redValue = Random.Range(0, 10);
+        yellowValue = Random.Range(0, 10);
+        greenValue = Random.Range(0, 10);
+
+        // Update the number display objects with new values
+        blueNumber.GetComponent<Numbers>().num = blueValue;
+        redNumber.GetComponent<Numbers>().num = redValue;
+        yellowNumber.GetComponent<Numbers>().num = yellowValue;
+        greenNumber.GetComponent<Numbers>().num = greenValue;
+    }
+
+    public void submit()
+    {
+        // Check if the button inputs match the generated values
         isOpen = blueButton.GetComponent<Numbers>().num == blueValue && redButton.GetComponent<Numbers>().num == redValue && yellowButton.GetComponent<Numbers>().num == yellowValue && greenButton.GetComponent<Numbers>().num == greenValue;
-        if(isOpen){
+
+        if (isOpen)
+        {
             sfxManager.instance.playSound(openSound, transform, 1f);
             door.transform.position = opened;
         }
-        else{
+        else
+        {
             sfxManager.instance.playSound(failedSound, transform, 1f);
             door.transform.position = closed;
         }
