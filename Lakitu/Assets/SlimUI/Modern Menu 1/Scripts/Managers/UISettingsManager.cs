@@ -26,10 +26,6 @@ namespace SlimUI.ModernMenu{
 
 		public void  Start (){
 
-			if (pauseMenu != null) {
-				pauseMenu.SetActive(false);
-			}
-
 			// check slider values
 			float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.75f); // Default to 0.75
 			float sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.75f); // Default to 0.75
