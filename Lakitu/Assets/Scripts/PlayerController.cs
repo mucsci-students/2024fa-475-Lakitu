@@ -15,10 +15,16 @@ public class PlayerController : MonoBehaviour
     public float mouseSensitivity = 100f;
     public bool invertMouseY = false;
 
+    [Header("Teleport Settings")]
+    public GameObject teleportTarget; // Reference to the invisible GameObject
+    public KeyCode teleportKey = KeyCode.T; // Key to trigger teleport
+    public float teleportCooldown = 5f; // Cooldown between teleports
+
     private CharacterController characterController;
     private Vector3 velocity;
     private bool isGrounded;
     private float xRotation = 0f;
+    private float teleportTimer;
 
     void Start()
     {
@@ -27,12 +33,17 @@ public class PlayerController : MonoBehaviour
         // Lock the cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Initialize teleport timer
+        teleportTimer = teleportCooldown;
     }
 
     void Update()
     {
         HandleMovement();
         HandleMouseLook();
+        HandleTeleport();
+        UpdateTeleportTimer();
     }
 
     void HandleMovement()
@@ -80,15 +91,32 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    // Method to teleport player, used by the portal
+    void HandleTeleport()
+    {
+        if (Input.GetKeyDown(teleportKey) && teleportTimer >= teleportCooldown)
+        {
+            Teleport(teleportTarget.transform.position, teleportTarget.transform.rotation);
+            teleportTimer = 0f; // Reset the teleport timer
+        }
+    }
+
+    void UpdateTeleportTimer()
+    {
+        if (teleportTimer < teleportCooldown)
+        {
+            teleportTimer += Time.deltaTime;
+        }
+    }
+
     public void Teleport(Vector3 targetPosition, Quaternion targetRotation)
     {
-        // Set the player's position directly
+        // Set the player's position and orientation directly
         characterController.enabled = false; // Disable CharacterController temporarily
-        transform.position = targetPosition; // Set the new position
+        transform.position = targetPosition;
+        transform.rotation = targetRotation;
 
         // Rotate the player 180 degrees
-        transform.Rotate(0f, 180f, 0f); // Rotate 180 degrees on the Y-axis
+        transform.Rotate(0f, 180f, 0f); // Turn the player 180 degrees
 
         characterController.enabled = true; // Re-enable CharacterController
     }

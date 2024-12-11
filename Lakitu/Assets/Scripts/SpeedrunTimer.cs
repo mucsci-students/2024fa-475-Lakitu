@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;  
-using TMPro;         
+using UnityEngine.UI;
+using TMPro;
 
 public class SpeedrunTimer : MonoBehaviour
 {
-    
-    public TMP_Text timerText; 
+    public TMP_Text timerText;
     private float elapsedTime;
     private bool isRunning;
+
+    [Header("Key Bindings")]
+    public KeyCode restartKey = KeyCode.R; // Key to restart the timer
 
     void Start()
     {
@@ -23,6 +25,12 @@ public class SpeedrunTimer : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             UpdateTimerDisplay(elapsedTime);
+        }
+
+        // Check for restart key press
+        if (Input.GetKeyDown(restartKey))
+        {
+            ResetTimer();
         }
     }
 
@@ -49,5 +57,12 @@ public class SpeedrunTimer : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((time * 1000) % 1000);
 
         timerText.text = string.Format("{0:00}:{1:00}.{2:000}", minutes, seconds, milliseconds);
+    }
+
+    public string GetFormattedTime()
+    {
+        int minutes = Mathf.FloorToInt(elapsedTime / 60F);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60F);
+        return $"{minutes:00}:{seconds:00}";
     }
 }
