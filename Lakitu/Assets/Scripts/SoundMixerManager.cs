@@ -8,13 +8,11 @@ public class SoundMixerManager : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
 
     void Start(){
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Awake(){
         if (GameObject.FindGameObjectsWithTag("mixer").Length > 1){
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void SetMasterVolume(float level){

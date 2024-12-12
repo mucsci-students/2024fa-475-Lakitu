@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Mouse Look Settings")]
     public Transform cameraTransform;
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = .0001f;
     public bool invertMouseY = false;
 
     [Header("Teleport Settings")]

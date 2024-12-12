@@ -18173,7 +18173,7 @@ MonoBehaviour:
   jumpHeight: 1.5
   gravity: -9.81
   cameraTransform: {fileID: 963194228}
-  mouseSensitivity: 2500
+  mouseSensitivity: 100
   invertMouseY: 0
   teleportTarget: {fileID: 18005642}
   teleportKey: 116
