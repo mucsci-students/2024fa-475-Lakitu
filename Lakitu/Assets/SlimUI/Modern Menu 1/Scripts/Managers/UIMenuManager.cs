@@ -83,8 +83,8 @@ namespace SlimUI.ModernMenu{
 			firstMenu.SetActive(true);
 			mainMenu.SetActive(true);
 
-			 GameObject pause = GameObject.Find("Canv_Options");
-			 pause.SetActive(false);
+			 GameObject settings = GameObject.Find("Canv_Options");
+			 settings.SetActive(false);
 
 			SetThemeColors();
 		}
