@@ -11,6 +11,12 @@ public class SoundMixerManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    void Awake(){
+        if (GameObject.FindGameObjectsWithTag("mixer").Length > 1){
+            Destroy(gameObject);
+        }
+    }
+
     public void SetMasterVolume(float level){
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(level) * 20f);
     }
