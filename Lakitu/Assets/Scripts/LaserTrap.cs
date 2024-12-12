@@ -20,10 +20,7 @@ public class LaserTrap : MonoBehaviour
             }
 
 
-            if (speedrunTimer != null)
-            {
-                speedrunTimer.ResetTimer();
-            }
+       
         }
     }
 }
