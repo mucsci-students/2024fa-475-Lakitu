@@ -17,9 +17,8 @@ public class PressurePlate : MonoBehaviour
     void Start()
     {
         isOn = false;
-
-        opened = new Vector3(-5.09f, 10f, -102.5951f);
-        closed = new Vector3(-5.09f, 4f, -102.5951f);
+        closed = door.transform.position;
+        opened = door.transform.position + new Vector3(0f, 5f, 0f);
     }
 
     // Update is called once per frame
