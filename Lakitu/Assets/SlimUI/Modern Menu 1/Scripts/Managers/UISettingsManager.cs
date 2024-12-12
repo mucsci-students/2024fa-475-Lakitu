@@ -96,8 +96,8 @@ namespace SlimUI.ModernMenu{
 			}
         }
 
-		public void toTitle() {
-			SceneManager.LoadScene("TitleScreen");
+		public void quitGame() {
+			Application.Quit();
 		}
 
 		public void FullScreen (){

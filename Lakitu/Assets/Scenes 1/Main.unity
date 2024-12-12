@@ -18598,7 +18598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -581}
+  m_AnchoredPosition: {x: -1, y: -355}
   m_SizeDelta: {x: 466.6, y: 93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575166280
@@ -22448,7 +22448,7 @@ GameObject:
   - component: {fileID: 724928679}
   - component: {fileID: 724928678}
   m_Layer: 5
-  m_Name: Btn_TitleScreen
+  m_Name: Btn_Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22520,7 +22520,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1792214701}
         m_TargetAssemblyTypeName: SlimUI.ModernMenu.UISettingsManager, Assembly-CSharp
-        m_MethodName: toTitle
+        m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31850,7 +31850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.713, y: -1.421}
+  m_AnchoredPosition: {x: -70, y: -1}
   m_SizeDelta: {x: 279.655, y: 52.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077335781
@@ -38493,7 +38493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: -241}
+  m_AnchoredPosition: {x: -3, y: -232}
   m_SizeDelta: {x: 461, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347702315
@@ -41883,7 +41883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65.713, y: -1.421}
+  m_AnchoredPosition: {x: -59, y: -3}
   m_SizeDelta: {x: 279.655, y: 52.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437239893
@@ -41906,7 +41906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Quit Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0b65c99348f068b49bef5db0bb76a6e4, type: 2}
   m_sharedMaterial: {fileID: 21809785584020342, guid: 0b65c99348f068b49bef5db0bb76a6e4, type: 2}
